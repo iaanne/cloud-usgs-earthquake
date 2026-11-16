@@ -1,0 +1,8 @@
+{
+  "type": "HttpServer",
+  "typeProperties": {
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/",
+    "enableServerCertificateValidation": true,
+    "authenticationType": "Anonymous"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "TumblingWindowTrigger",
+  "typeProperties": {
+    "frequency": "Day",
+    "interval": 30,
+    "startTime": "2016-06-11T00:00:00Z",
+    "endTime": "2026-11-01T00:00:00Z",
+    "maxConcurrency": 1,
+    "retryPolicy": {
+      "count": 2,
+      "intervalInSeconds": 120
+    }
+  },
+  "pipeline": {
+    "pipelineReference": {
+      "referenceName": "pl_ingest_usgs",
+      "type": "PipelineReference"
+    },
+    "parameters": {
+      "startDate": {
+        "value": "@formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd')",
+        "type": "Expression"
+      },
+      "endDate": {
+        "value": "@formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd')",
+        "type": "Expression"
+      },
+      "tahun": {
+        "value": "@formatDateTime(trigger().outputs.windowStartTime,'yyyy')",
+        "type": "Expression"
+      },
+      "tanggal": {
+        "value": "@formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd')",
+        "type": "Expression"
+      }
+    }
+  },
+  "annotations": []
+}

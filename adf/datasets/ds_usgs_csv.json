@@ -1,0 +1,23 @@
+{
+  "type": "DelimitedText",
+  "linkedServiceName": {
+    "referenceName": "ls_usgs",
+    "type": "LinkedServiceReference"
+  },
+  "parameters": {
+    "relativeUrl": {
+      "type": "String"
+    }
+  },
+  "typeProperties": {
+    "location": {
+      "type": "HttpServerLocation",
+      "relativeUrl": "@dataset().relativeUrl"
+    },
+    "columnDelimiter": ",",
+    "rowDelimiter": "\n",
+    "escapeChar": "\\",
+    "firstRowAsHeader": true,
+    "quoteChar": "\""
+  }
+}

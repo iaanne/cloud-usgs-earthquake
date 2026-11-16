@@ -1,0 +1,7 @@
+{
+  "type": "AzureBlobFS",
+  "typeProperties": {
+    "url": "https://cloudearthquake.dfs.core.windows.net",
+    "accountKind": "StorageV2"
+  }
+}

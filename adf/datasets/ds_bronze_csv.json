@@ -1,0 +1,23 @@
+{
+  "type": "DelimitedText",
+  "linkedServiceName": {
+    "referenceName": "ls_datalake",
+    "type": "LinkedServiceReference"
+  },
+  "parameters": {
+    "folder": {
+      "type": "String"
+    }
+  },
+  "typeProperties": {
+    "location": {
+      "type": "AzureBlobFSLocation",
+      "fileSystem": "datalake",
+      "folderPath": "@dataset().folder",
+      "fileName": "events.csv"
+    },
+    "columnDelimiter": ",",
+    "firstRowAsHeader": true,
+    "quoteChar": "\""
+  }
+}
