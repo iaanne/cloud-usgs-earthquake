@@ -1,0 +1,222 @@
+2026-11-24 21:27:18,208 INFO 126 berkas sumber, limit 10000 event
+2026-11-24 21:27:18,208 INFO No environment configuration found.
+2026-11-24 21:27:18,209 INFO ManagedIdentityCredential will use IMDS
+2026-11-24 21:27:18,210 INFO Request URL: 'https://kv-earthquake-l0224036.vault.azure.net/secrets/eventhub-usgs-send/?api-version=2026-04-01'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '2708b02c-e813-11f1-9197-c03532e74b8b'
+    'User-Agent': 'azsdk-python-keyvault-secrets/4.12.0 Python/3.14.10 (Linux-7.3.3-1-cachyos-x86_64-with-glibc2.44)'
+No body was attached to the request
+2026-11-24 21:27:20,916 INFO Response status: 401
+Response headers:
+    'Cache-Control': 'no-cache'
+    'Pragma': 'no-cache'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Expires': '-1'
+    'x-ms-keyvault-region': 'eastasia'
+    'x-ms-client-request-id': '2708b02c-e813-11f1-9197-c03532e74b8b'
+    'x-ms-request-id': '604e0601-e08a-4bc0-964e-6f6b26aeb20a'
+    'x-ms-keyvault-service-version': '1.9.4024.1'
+    'x-ms-keyvault-network-info': 'conn_type=Ipv4;addr=114.10.152.155;act_addr_fam=InterNetwork;'
+    'X-Content-Type-Options': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'WWW-Authenticate': 'Bearer authorization="https://login.microsoftonline.com/7d67c75a-7370-4af4-b7c2-0210d01db957", resource="https://vault.azure.net"'
+    'Date': 'Tue, 24 Nov 2026 14:28:12 GMT'
+    'Content-Length': '108'
+2026-11-24 21:27:20,916 INFO Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28a5b452-e813-11f1-9197-c03532e74b8b'
+    'User-Agent': 'azsdk-python-identity/1.27.0 Python/3.14.10 (Linux-7.3.3-1-cachyos-x86_64-with-glibc2.44)'
+No body was attached to the request
+2026-11-24 21:27:22,184 INFO DefaultAzureCredential acquired a token from AzureCliCredential
+2026-11-24 21:27:22,184 INFO Request URL: 'https://kv-earthquake-l0224036.vault.azure.net/secrets/eventhub-usgs-send/?api-version=2026-04-01'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '2708b02c-e813-11f1-9197-c03532e74b8b'
+    'User-Agent': 'azsdk-python-keyvault-secrets/4.12.0 Python/3.14.10 (Linux-7.3.3-1-cachyos-x86_64-with-glibc2.44)'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-11-24 21:27:22,837 INFO Response status: 200
+Response headers:
+    'Cache-Control': 'no-cache'
+    'Pragma': 'no-cache'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Expires': '-1'
+    'x-ms-keyvault-region': 'eastasia'
+    'x-ms-client-request-id': '2708b02c-e813-11f1-9197-c03532e74b8b'
+    'x-ms-request-id': 'fddbe205-0a28-4538-bb91-1b8decc8e7f0'
+    'x-ms-keyvault-service-version': '1.9.4024.1'
+    'x-ms-keyvault-network-info': 'conn_type=Ipv4;addr=114.10.152.155;act_addr_fam=InterNetwork;'
+    'x-ms-keyvault-rbac-assignment-id': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Date': 'Tue, 24 Nov 2026 14:28:14 GMT'
+    'Content-Length': '475'
+2026-11-24 21:27:22,838 INFO terhubung ke Event Hub usgs-events
+2026-11-24 21:27:23,313 INFO Connection state changed: None -> <ConnectionState.START: 0>
+2026-11-24 21:27:23,518 INFO Connection state changed: <ConnectionState.START: 0> -> <ConnectionState.HDR_SENT: 2>
+2026-11-24 21:27:23,518 INFO Connection state changed: <ConnectionState.HDR_SENT: 2> -> <ConnectionState.HDR_SENT: 2>
+2026-11-24 21:27:23,518 INFO Connection state changed: <ConnectionState.HDR_SENT: 2> -> <ConnectionState.OPEN_PIPE: 4>
+2026-11-24 21:27:23,518 INFO Session state changed: <SessionState.UNMAPPED: 0> -> <SessionState.BEGIN_SENT: 1>
+2026-11-24 21:27:23,518 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:27:23,518 INFO Management link receiver state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:27:23,518 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:27:23,518 INFO Management link sender state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:27:23,602 INFO Connection state changed: <ConnectionState.OPEN_PIPE: 4> -> <ConnectionState.OPEN_SENT: 7>
+2026-11-24 21:27:23,652 INFO Connection state changed: <ConnectionState.OPEN_SENT: 7> -> <ConnectionState.OPENED: 9>
+2026-11-24 21:27:23,702 INFO Session state changed: <SessionState.BEGIN_SENT: 1> -> <SessionState.MAPPED: 3>
+2026-11-24 21:27:23,753 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:27:23,753 INFO Management link receiver state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:27:23,803 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:27:23,804 INFO Management link sender state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:27:24,053 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:27:24,151 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:27:42,631 INFO terkirim 100, gagal 0
+2026-11-24 21:27:55,118 INFO terkirim 200, gagal 0
+2026-11-24 21:28:05,910 INFO terkirim 300, gagal 0
+2026-11-24 21:28:24,442 INFO terkirim 400, gagal 0
+2026-11-24 21:28:34,739 INFO terkirim 500, gagal 0
+2026-11-24 21:28:45,601 INFO terkirim 600, gagal 0
+2026-11-24 21:29:05,321 INFO terkirim 700, gagal 0
+2026-11-24 21:29:15,792 INFO terkirim 800, gagal 0
+2026-11-24 21:29:26,505 INFO terkirim 900, gagal 0
+2026-11-24 21:29:46,598 INFO terkirim 1000, gagal 0
+2026-11-24 21:30:02,190 INFO terkirim 1100, gagal 0
+2026-11-24 21:30:16,421 INFO terkirim 1200, gagal 0
+2026-11-24 21:30:27,031 INFO terkirim 1300, gagal 0
+2026-11-24 21:30:48,826 INFO terkirim 1400, gagal 0
+2026-11-24 21:31:00,318 INFO terkirim 1500, gagal 0
+2026-11-24 21:31:10,880 INFO terkirim 1600, gagal 0
+2026-11-24 21:31:21,530 INFO terkirim 1700, gagal 0
+2026-11-24 21:31:36,856 INFO terkirim 1800, gagal 0
+2026-11-24 21:31:46,765 INFO terkirim 1900, gagal 0
+2026-11-24 21:32:02,585 INFO terkirim 2000, gagal 0
+2026-11-24 21:32:12,275 INFO terkirim 2100, gagal 0
+2026-11-24 21:32:27,778 INFO terkirim 2200, gagal 0
+2026-11-24 21:32:39,120 INFO terkirim 2300, gagal 0
+2026-11-24 21:32:55,942 INFO terkirim 2400, gagal 0
+2026-11-24 21:33:05,858 INFO terkirim 2500, gagal 0
+2026-11-24 21:33:22,715 INFO terkirim 2600, gagal 0
+2026-11-24 21:33:32,627 INFO terkirim 2700, gagal 0
+2026-11-24 21:33:42,694 INFO terkirim 2800, gagal 0
+2026-11-24 21:33:57,653 INFO terkirim 2900, gagal 0
+2026-11-24 21:34:07,802 INFO terkirim 3000, gagal 0
+2026-11-24 21:34:17,767 INFO terkirim 3100, gagal 0
+2026-11-24 21:34:29,828 INFO terkirim 3200, gagal 0
+2026-11-24 21:34:39,552 INFO terkirim 3300, gagal 0
+2026-11-24 21:34:49,244 INFO terkirim 3400, gagal 0
+2026-11-24 21:34:59,627 INFO terkirim 3500, gagal 0
+2026-11-24 21:35:11,668 INFO terkirim 3600, gagal 0
+2026-11-24 21:35:23,299 INFO terkirim 3700, gagal 0
+2026-11-24 21:35:33,797 INFO terkirim 3800, gagal 0
+2026-11-24 21:35:46,649 INFO terkirim 3900, gagal 0
+2026-11-24 21:35:57,209 INFO terkirim 4000, gagal 0
+2026-11-24 21:36:07,310 INFO terkirim 4100, gagal 0
+2026-11-24 21:36:16,951 INFO terkirim 4200, gagal 0
+2026-11-24 21:36:27,541 INFO terkirim 4300, gagal 0
+2026-11-24 21:36:37,767 INFO terkirim 4400, gagal 0
+2026-11-24 21:36:47,519 INFO terkirim 4500, gagal 0
+2026-11-24 21:36:57,324 INFO terkirim 4600, gagal 0
+2026-11-24 21:37:07,058 INFO terkirim 4700, gagal 0
+2026-11-24 21:37:17,394 INFO terkirim 4800, gagal 0
+2026-11-24 21:37:27,210 INFO terkirim 4900, gagal 0
+2026-11-24 21:37:38,274 INFO terkirim 5000, gagal 0
+2026-11-24 21:37:49,050 INFO terkirim 5100, gagal 0
+2026-11-24 21:37:59,303 INFO terkirim 5200, gagal 0
+2026-11-24 21:38:10,568 INFO terkirim 5300, gagal 0
+2026-11-24 21:38:20,186 INFO terkirim 5400, gagal 0
+2026-11-24 21:38:30,066 INFO terkirim 5500, gagal 0
+2026-11-24 21:38:40,411 INFO terkirim 5600, gagal 0
+2026-11-24 21:38:50,088 INFO terkirim 5700, gagal 0
+2026-11-24 21:39:00,482 INFO terkirim 5800, gagal 0
+2026-11-24 21:39:11,157 INFO terkirim 5900, gagal 0
+2026-11-24 21:39:21,802 INFO terkirim 6000, gagal 0
+2026-11-24 21:39:33,043 INFO terkirim 6100, gagal 0
+2026-11-24 21:39:44,694 INFO terkirim 6200, gagal 0
+2026-11-24 21:40:01,310 INFO terkirim 6300, gagal 0
+2026-11-24 21:40:09,195 INFO An error occurred when detaching the link: AMQPConnectionError('Error condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')
+2026-11-24 21:40:09,195 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACHED: 0>
+2026-11-24 21:40:09,195 INFO An error occurred when detaching the link: AMQPConnectionError('Error condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')
+2026-11-24 21:40:09,195 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACHED: 0>
+2026-11-24 21:40:09,195 INFO Management link receiver state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACHED: 0>
+2026-11-24 21:40:09,195 INFO An error occurred when detaching the link: AMQPConnectionError('Error condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')
+2026-11-24 21:40:09,196 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACHED: 0>
+2026-11-24 21:40:09,196 INFO Management link sender state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACHED: 0>
+2026-11-24 21:40:09,196 INFO An error occurred when ending the session: AMQPConnectionError('Error condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')
+2026-11-24 21:40:09,196 INFO Session state changed: <SessionState.MAPPED: 3> -> <SessionState.UNMAPPED: 0>
+2026-11-24 21:40:09,196 INFO An error occurred when closing the connection: AMQPConnectionError('Error condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')
+2026-11-24 21:40:09,196 INFO Connection state changed: <ConnectionState.OPENED: 9> -> <ConnectionState.END: 13>
+2026-11-24 21:40:09,996 INFO 'EHProducer-4ca6f825-118a-4c94-9e40-05376a41b4ac' has an exception (ConnectError('Can not read frame due to exception: [Errno 32] Broken pipe\nError condition: ErrorCondition.SocketError\n Error Description: Can not read frame due to exception: [Errno 32] Broken pipe')). Retrying...
+2026-11-24 21:40:15,210 INFO Connection state changed: None -> <ConnectionState.START: 0>
+2026-11-24 21:40:15,426 INFO Connection state changed: <ConnectionState.START: 0> -> <ConnectionState.HDR_SENT: 2>
+2026-11-24 21:40:15,426 INFO Connection state changed: <ConnectionState.HDR_SENT: 2> -> <ConnectionState.HDR_SENT: 2>
+2026-11-24 21:40:15,426 INFO Connection state changed: <ConnectionState.HDR_SENT: 2> -> <ConnectionState.OPEN_PIPE: 4>
+2026-11-24 21:40:15,426 INFO Session state changed: <SessionState.UNMAPPED: 0> -> <SessionState.BEGIN_SENT: 1>
+2026-11-24 21:40:15,426 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:40:15,426 INFO Management link receiver state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:40:15,426 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:40:15,426 INFO Management link sender state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:40:15,506 INFO Connection state changed: <ConnectionState.OPEN_PIPE: 4> -> <ConnectionState.OPEN_SENT: 7>
+2026-11-24 21:40:15,557 INFO Connection state changed: <ConnectionState.OPEN_SENT: 7> -> <ConnectionState.OPENED: 9>
+2026-11-24 21:40:15,607 INFO Session state changed: <SessionState.BEGIN_SENT: 1> -> <SessionState.MAPPED: 3>
+2026-11-24 21:40:15,657 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:40:15,657 INFO Management link receiver state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:40:15,708 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:40:15,708 INFO Management link sender state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:40:16,415 INFO Link state changed: <LinkState.DETACHED: 0> -> <LinkState.ATTACH_SENT: 1>
+2026-11-24 21:40:16,762 INFO Link state changed: <LinkState.ATTACH_SENT: 1> -> <LinkState.ATTACHED: 3>
+2026-11-24 21:40:29,995 INFO terkirim 6400, gagal 0
+2026-11-24 21:40:52,671 INFO terkirim 6500, gagal 0
+2026-11-24 21:41:16,291 INFO terkirim 6600, gagal 0
+2026-11-24 21:41:40,537 INFO terkirim 6700, gagal 0
+2026-11-24 21:41:59,519 INFO terkirim 6800, gagal 0
+2026-11-24 21:42:25,172 INFO terkirim 6900, gagal 0
+2026-11-24 21:42:47,862 INFO terkirim 7000, gagal 0
+2026-11-24 21:43:14,229 INFO terkirim 7100, gagal 0
+2026-11-24 21:43:37,839 INFO terkirim 7200, gagal 0
+2026-11-24 21:44:01,395 INFO terkirim 7300, gagal 0
+2026-11-24 21:44:22,616 INFO terkirim 7400, gagal 0
+2026-11-24 21:44:44,630 INFO terkirim 7500, gagal 0
+2026-11-24 21:45:05,198 INFO terkirim 7600, gagal 0
+2026-11-24 21:45:32,337 INFO terkirim 7700, gagal 0
+2026-11-24 21:45:58,966 INFO terkirim 7800, gagal 0
+2026-11-24 21:46:22,732 INFO terkirim 7900, gagal 0
+2026-11-24 21:46:40,371 INFO terkirim 8000, gagal 0
+2026-11-24 21:46:50,157 INFO terkirim 8100, gagal 0
+2026-11-24 21:46:59,687 INFO terkirim 8200, gagal 0
+2026-11-24 21:47:09,561 INFO terkirim 8300, gagal 0
+2026-11-24 21:47:19,516 INFO terkirim 8400, gagal 0
+2026-11-24 21:47:29,636 INFO terkirim 8500, gagal 0
+2026-11-24 21:47:41,205 INFO terkirim 8600, gagal 0
+2026-11-24 21:47:51,368 INFO terkirim 8700, gagal 0
+2026-11-24 21:48:01,450 INFO terkirim 8800, gagal 0
+2026-11-24 21:48:13,513 INFO terkirim 8900, gagal 0
+2026-11-24 21:48:23,223 INFO terkirim 9000, gagal 0
+2026-11-24 21:48:33,061 INFO terkirim 9100, gagal 0
+2026-11-24 21:48:43,512 INFO terkirim 9200, gagal 0
+2026-11-24 21:48:53,134 INFO terkirim 9300, gagal 0
+2026-11-24 21:49:02,744 INFO terkirim 9400, gagal 0
+2026-11-24 21:49:12,316 INFO terkirim 9500, gagal 0
+2026-11-24 21:49:21,692 INFO terkirim 9600, gagal 0
+2026-11-24 21:49:30,980 INFO terkirim 9700, gagal 0
+2026-11-24 21:49:40,355 INFO terkirim 9800, gagal 0
+2026-11-24 21:49:50,314 INFO terkirim 9900, gagal 0
+2026-11-24 21:50:01,038 INFO terkirim 10000, gagal 0
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACH_SENT: 4>
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACH_SENT: 4>
+2026-11-24 21:50:01,039 INFO Management link receiver state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACH_SENT: 4>
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACH_SENT: 4>
+2026-11-24 21:50:01,039 INFO Management link sender state changed: <LinkState.ATTACHED: 3> -> <LinkState.DETACH_SENT: 4>
+2026-11-24 21:50:01,039 INFO Session state changed: <SessionState.MAPPED: 3> -> <SessionState.END_SENT: 4>
+2026-11-24 21:50:01,039 INFO Connection state changed: <ConnectionState.OPENED: 9> -> <ConnectionState.CLOSE_SENT: 11>
+2026-11-24 21:50:01,039 INFO Connection state changed: <ConnectionState.CLOSE_SENT: 11> -> <ConnectionState.END: 13>
+2026-11-24 21:50:01,039 INFO Session state changed: <SessionState.END_SENT: 4> -> <SessionState.DISCARDING: 6>
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.DETACH_SENT: 4> -> <LinkState.DETACHED: 0>
+2026-11-24 21:50:01,039 INFO Management link sender state changed: <LinkState.DETACH_SENT: 4> -> <LinkState.DETACHED: 0>
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.DETACH_SENT: 4> -> <LinkState.DETACHED: 0>
+2026-11-24 21:50:01,039 INFO Management link receiver state changed: <LinkState.DETACH_SENT: 4> -> <LinkState.DETACHED: 0>
+2026-11-24 21:50:01,039 INFO Link state changed: <LinkState.DETACH_SENT: 4> -> <LinkState.DETACHED: 0>
+2026-11-24 21:50:01,132 INFO selesai: 10000 terkirim, 0 gagal, 1358.3 detik, 7.4 event/detik

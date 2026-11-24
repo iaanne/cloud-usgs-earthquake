@@ -1,0 +1,5 @@
+azure-eventhub>=5.11
+azure-identity>=1.15
+azure-keyvault-secrets>=4.7
+azure-storage-file-datalake>=12.8
+fastavro>=1.9

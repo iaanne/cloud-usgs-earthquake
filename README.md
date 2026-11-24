@@ -14,7 +14,7 @@ Repo ini berisi lapisan **ingestion dan Bronze** yang sudah berjalan: Azure Data
 
 | Ketentuan | Status | Keterangan |
 |---|---|---|
-| Azure Data Factory sebagai pipeline otomatis | selesai | Tumbling window trigger, 126 jendela, seluruhnya Succeeded |
+| Azure Data Factory sebagai pipeline otomatis | selesai | Tumbling window trigger 30 hari, 127 jendela, seluruhnya Succeeded |
 | Implementasi ML/DL di dalam pipeline | belum | Dikerjakan setelah Silver dan Gold siap |
 | Retrain otomatis minimal 2 kali | belum | Butuh notebook training lebih dulu |
 | Inference Azure Function berformat JSON | belum | Menyusul setelah model ada |
@@ -23,7 +23,7 @@ Repo ini berisi lapisan **ingestion dan Bronze** yang sudah berjalan: Azure Data
 
 | Target | Status | Keterangan |
 |---|---|---|
-| Data 100.000 baris | selesai | **298.930 baris** di Bronze |
+| Data 100.000 baris | selesai | **300.230 baris** di Bronze |
 | Kredit di bawah 80 dolar | terpantau | Budget alert 20 dolar per bulan, ambang 20/40/60/80/100 persen |
 | Dashboard berisi hasil ML | belum | |
 | Retrain lebih dari 3 kali | belum | |
@@ -120,11 +120,11 @@ URL sumber dibentuk di dalam Copy activity:
 
 | Metrik | Nilai |
 |---|---|
-| Jendela terproses | 126 |
+| Jendela terproses | 127 |
 | Jendela gagal | 0 |
-| Berkas CSV di Bronze | 126 |
-| Total baris data | **298.930** |
-| Ukuran di lake | 65,1 MB |
+| Berkas CSV di Bronze | 127 |
+| Total baris data | **300.230** |
+| Ukuran di lake | 65,4 MB |
 | Biaya ADF untuk seluruh backfill | sekitar 0,6 dolar |
 
 Verifikasi ulang dengan `scripts/verify_bronze.sh`.
@@ -172,11 +172,38 @@ Hasil yang diharapkan: satu berkas 522 KB berisi 2.249 baris, sama dengan jumlah
 
 ---
 
-## 8. Biaya
+---
+
+## 8. Streaming ke Event Hub
+
+Data Bronze diputar ulang sebagai aliran event ke Event Hub `usgs-events`, untuk mensimulasikan data masuk terus-menerus tanpa sensor waktu nyata.
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r producer/requirements.txt
+
+.venv/bin/python producer/replay_bronze.py \
+  --source ./data/bronze --limit 10000 \
+  --vault-url https://kv-earthquake-l0224036.vault.azure.net/ \
+  --secret-name eventhub-usgs-send --eventhub-name usgs-events
+```
+
+| Aspek | Nilai |
+|---|---|
+| Kontrak event | `docs/event-schema.md`, 10 field, partition key `id` |
+| Ukuran kelompok | 100 event per putaran |
+| Batas laju | 200 event per detik |
+| Percobaan ulang | 3 kali, jeda 1, 2, dan 4 detik |
+| Kredensial | Connection string dibaca dari Key Vault `kv-earthquake-l0224036`, secret `eventhub-usgs-send` |
+| Capture | Avro, interval 300 detik, folder `bronze/usgs_stream` |
+
+Panduan lengkap, arti metric, dan penanganan galat ada di `docs/streaming.md`.
+
+## 9. Biaya
 
 | Komponen | Perkiraan |
 |---|---|
-| ADF backfill 126 jendela | 0,6 dolar |
+| ADF backfill 127 jendela | 0,6 dolar |
 | ADLS Gen2, 65 MB | di bawah 0,01 dolar per bulan |
 | Budget alert | gratis |
 
@@ -184,7 +211,7 @@ Komponen termahal pada proyek ini bukan penyimpanan dan bukan ADF, melainkan jam
 
 ---
 
-## 9. Struktur repo
+## 10. Struktur repo
 
 ```
 .
@@ -195,7 +222,12 @@ Komponen termahal pada proyek ini bukan penyimpanan dan bukan ADF, melainkan jam
 │   ├── pipelines/
 │   └── triggers/
 ├── docs/
-│   └── evidence.md
+│   ├── event-schema.md
+│   ├── evidence.md
+│   └── streaming.md
+├── producer/
+│   ├── replay_bronze.py
+│   └── requirements.txt
 └── scripts/
     └── verify_bronze.sh
 ```
@@ -204,7 +236,7 @@ Data CSV tidak disimpan di repo karena berukuran 65 MB dan dapat dibuat ulang ka
 
 ---
 
-## 10. Tim
+## 11. Tim
 
 | Nama | NID | Bagian |
 |---|---|---|
@@ -215,7 +247,7 @@ Data CSV tidak disimpan di repo karena berukuran 65 MB dan dapat dibuat ulang ka
 
 ---
 
-## 11. Langkah berikutnya
+## 12. Langkah berikutnya
 
 1. Notebook Silver: pembersihan, pengetikan kolom, deduplikasi berdasarkan `id`.
 2. Notebook Gold: fitur agregat per sel grid dengan rolling window 7/30/90 hari dan akumulasi energi Gutenberg-Richter.
